@@ -12,7 +12,7 @@ This project includes a solution for data processing tasks implemented in Java. 
 Java JDK 21
 Maven 3.8.0
 
-Implementing the solution in Java will require Java 1.7.x and Maven 3.6.x installed on the systems. On Ubuntu 22.04 we can install Java and Maven using the following commands:
+On Ubuntu 22.04 we can install Java and Maven using the following commands:
 
 ```
 sudo apt install openjdk-17-jdk maven
