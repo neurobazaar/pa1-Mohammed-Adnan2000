@@ -13,6 +13,7 @@ public class SortWords {
         long startTime = System.currentTimeMillis();
 
         Path inputDir = Paths.get(inputDirStr);
+        
         Path outputDir = Paths.get(outputDirStr);
 
         try {
@@ -55,7 +56,6 @@ public class SortWords {
                 }
             }
         }
-
         return wordCounts;
     }
 
@@ -64,13 +64,14 @@ public class SortWords {
                          .stream()
                          .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                          .collect(Collectors.toList());
+
     }
 
     private void writeOutputFile(List<Map.Entry<String, Integer>> sortedWords, Path outputFile) throws IOException {
         Files.createDirectories(outputFile.getParent());
 
         try (BufferedWriter writer = Files.newBufferedWriter(outputFile)) {
-            for (Map.Entry<String, Integer> entry : sortedWords) {
+            for (Map.Entry<String,  Integer> entry : sortedWords) {
                 writer.write(entry.getKey() + " " + entry.getValue());
                 writer.newLine();
             }

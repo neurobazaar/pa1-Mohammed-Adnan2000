@@ -12,14 +12,12 @@ public class CleanDataset
     public void clean_dataset(String inputDir, String outputDir)
     {
         long startTime = System.currentTimeMillis();
-
         try {
-            Files.createDirectories(Paths.get(outputDir));
+            Files.createDirectories(Paths.get( outputDir));
             processDirectory(new File(inputDir), inputDir, outputDir);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         long endTime = System.currentTimeMillis();
         execution_time = endTime - startTime;
     }
@@ -38,25 +36,25 @@ public class CleanDataset
     }
 
     private void processFile(File file, String inputDir, String outputDir) throws IOException {
-        // Read the file content
+        // Read file
         byte[] fileBytes = Files.readAllBytes(file.toPath());
         String content = new String(fileBytes, StandardCharsets.UTF_8);
 
-        // Update dataset size
+        //dataset size
         dataset_size += fileBytes.length;
 
-        // Apply cleaning rules
-        content = content.replaceAll("[^a-zA-Z0-9\\s]", ""); // Remove all special characters
+        //cleaning data
+        content = content.replaceAll("[^a-zA-Z0-9\\s]", ""); // Remove special characters
         content = content.replaceAll("\\s{2,}", "\n"); // Replace multiple whitespaces
 
-        // Define the output file path
+        //output file path.
         String relativePath = file.getAbsolutePath().substring(inputDir.length());
         File outputFile = new File(outputDir, relativePath);
 
-        // Ensure the output directory exists
+        // Ensuring the output directory exists
         outputFile.getParentFile().mkdirs();
 
-        // Write the cleaned content
+        // Write the cleaned data
         Files.write(outputFile.toPath(), content.getBytes(StandardCharsets.UTF_8));
     }
 
