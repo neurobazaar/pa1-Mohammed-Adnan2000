@@ -1,25 +1,18 @@
 ## CSC435 Programming Assignment 1 (Winter 2024)
 **Jarvis College of Computing and Digital Media - DePaul University**
 
-**Student**: TO-DO write-student-name (TO-DO write-email-address)
+**Student**: Adnan Mohammed (amoha178@depaul.edu)
 
-**Solution programming language**: TO-DO write-solution-programming-language (C++ or Java)
+**Solution programming language**: Java
 
 ### Requirements
 
-If you are implementing your solution in C++ you will need to have GCC 12.x and CMake 3.22.x installed on your system. On Ubuntu 22.04 you can install GCC and set it as default compiler using the following commands:
+This project includes a solution for data processing tasks implemented in Java. The tasks include cleaning datasets, counting words, and sorting words. The solution is structured into the directory app-java.
+### Prerequisites
+Java JDK 21
+Maven 3.8.0
 
-```
-sudo apt install g++-12 gcc-12 cmake
-sudo update-alternatives --remove-all gcc
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 110
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 120
-sudo update-alternatives --remove-all g++
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 110
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-12 120
-```
-
-If you are implementing your solution in Java you will need to have Java 1.7.x and Maven 3.6.x installed on your systems. On Ubuntu 22.04 you can install Java and Maven using the following commands:
+Implementing the solution in Java will require Java 1.7.x and Maven 3.6.x installed on the systems. On Ubuntu 22.04 we can install Java and Maven using the following commands:
 
 ```
 sudo apt install openjdk-17-jdk maven
@@ -40,34 +33,6 @@ remote-computer$ mkdir datasets
 local-computer$ scp Dataset1.zip cc@<remote-ip>:<path-to-repo>/datasets/.
 remote-computer$ cd <path-to-repo>/datasets
 remote-computer$ unzip Dataset1.zip
-```
-
-### C++ solution
-#### How to build/compile
-
-To build the C++ solution use the following commands:
-```
-cd app-cpp
-mkdir build
-cmake -S . -B build
-cmake --build build
-```
-
-#### How to run application
-
-To run the C++ clean dataset program (after you build the project) use the following command:
-```
-./build/clean_dataset <input directory> <output directory>
-```
-
-To run the C++ word count program (after you build the project) use the following command:
-```
-./build/count_words <input directory> <output directory>
-```
-
-To run the C++ sort words program (after you build the project) use the following command:
-```
-./build/sort_words <input directory> <output directory>
 ```
 
 ### Java solution
@@ -96,3 +61,47 @@ To run the Java sort_words program (after you build the project) use the followi
 ```
 java -cp target/app-java-1.0-SNAPSHOT.jar csc435.app.SortWords <input directory> <output directory>
 ```
+### Directory Structure
+
+pa1-Mohammed-Adnan2000/
+|
+├── app-java/
+│   ├── src/
+│   │   └── main/
+│   │       └── java/
+│   │           └── csc435/
+│   │               └── app/
+│   │                   ├── CleanDataset.java
+│   │                   ├── CountWords.java
+│   │                   └── SortWords.java
+│   │
+│   ├── target/
+│   │   ├── classes/
+│   │   │   └── csc435/
+│   │   │       └── app/
+│   │   │           ├── CleanDataset.class
+│   │   │           ├── CountWords.class
+│   │   │           └── SortWords.class
+│   │   │
+│   │   ├── generated-sources/
+│   │   │   └── annotations/
+│   │   │
+│   │   ├── maven-archiver/
+│   │   │   └── pom.properties
+│   │   │
+│   │   ├── maven-status/
+│   │   │   └── maven-compiler-plugin/
+│   │   │       └── compile/
+│   │   │           └── default-compile/
+│   │   │               ├── createdFiles.lst
+│   │   │               └── inputFiles.lst
+│   │   │
+│   │   ├── test-classes/
+│   │   │
+│   │   └── app-java-1.0-SNAPSHOT.jar
+│   │
+│   └── pom.xml
+│
+├── Dataset/
+│
+└── README.md
